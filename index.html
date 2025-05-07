@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Ementa Interativa</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 40px;
+      background-color: #ffffff;
+    }
+    .bandeira {
+      width: 60px;
+      margin: 10px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .bandeira:hover {
+      transform: scale(1.1);
+    }
+    .ementa {
+      margin-top: 30px;
+      padding: 20px;
+      border-top: 1px solid #6e532b;
+    }
+  </style>
+</head>
+<body>
+  
+  <img src="logo.png" alt="Logo" width="300">
+  <h2>Escolha o idioma</h2>
+
+  <div>
+    <!-- Bandeira de Portugal (exemplo) -->
+  
+    <img src="tuga.jpg" alt="Português" class="bandeira" onclick="mostrarEmenta('pt')">
+
+
+    <!-- Bandeira do Reino Unido -->
+    <img src="uk.jpg" alt="English" class="bandeira" onclick="mostrarEmenta('en')">
+    <!-- Bandeira da Alemanha -->
+    <img src="al.jpg" alt="Alemão" class="bandeira" onclick="mostrarEmenta('de')">
+    
+  </div>
+
+  <div class="ementa" id="ementa">
+    <p>Selecione uma bandeira para ver a ementa.</p>
+  </div>
+  <script>
+    const ementas = {
+      pt: `
+        <h3>Ementa Completa - Português</h3>
+        
+        <h4>SANDES</h4>
+        <ul>
+          <li>Sandes Omelete ...... 2.50€</li>
+          <li>Sandes Panado ...... 3.20€</li>
+          <li>Sandes Presunto ...... 3.80€</li>
+          <li>Sandes Presunto e Queijo da Serra ...... 5.00€</li>
+          <li>Sandes Filete Panado ...... 3.20€</li>
+          <li>Bifana no Pão ...... 2.20€</li>
+          <li>Cachorro ...... 2.60€</li>
+          <li>Hamburguer ...... 3.80€</li>
+        </ul>
+    
+        <h4>SALADAS</h4>
+        <ul>
+          <li>Salada Mista (alface, tomate, cenoura, azeitonas) ...... 4.70€</li>
+          <li>Salada Atum (alface, tomate, ovo, atum, cenoura, azeitonas) ...... 5.50€</li>
+          <li>Salada Delicias do Mar (alface, tomate, cenoura, delicias do mar, azeitonas) ...... 6.00€</li>
+        </ul>
+    
+        <h4>PRATOS RÁPIDOS</h4>
+        <ul>
+          <li>Moelas (moelas, batatas fritas, salada) ...... 6.00€</li>
+          <li>Bifana (bifana, ovo, batatas fritas, salada) ...... 6.50€</li>
+          <li>Filete (filete, batatas fritas, salada) ...... 5.00€</li>
+          <li>Alheira (alheira, ovo, batatas fritas, salada) ...... 5.00€</li>
+          <li>Hamburguer (hamburguer, ovo, batatas fritas, salada) ...... 5.00€</li>
+          <li>Omelete (omelete, batatas fritas, salada) ...... 5.00€</li>
+          <li>Salsichas (salsichas, batatas fritas, salada) ...... 5.00€</li>
+        </ul>
+    
+        <h4>PETISCOS</h4>
+        <ul>
+          <li>Pires de Tremoços ...... 0.60€</li>
+          <li>Pires de Amendoins c/ casca ...... 0.60€</li>
+          <li>Chouriça Assada ...... 5.50€ (unidade)</li>
+          <li>Pires de Moelas ...... 4.50€</li>
+          <li>Alheira ...... 4.50€ (unidade)</li>
+          <li>Pica pau ...... 8.00€</li>
+          <li>Pires de Presunto e Queijo da Serra ...... 7.50€</li>
+          <li>Pires de Dobrada ...... 5.00€</li>
+          <li>Pires de Orelha ...... 3.00€</li>
+        </ul>
+    
+        <h4>CAFETARIA</h4>
+        <ul>
+          <li>Abatanado ...... 0.90€</li>
+          <li>Abatanado pingado ...... 1.05€</li>
+          <li>Café | Carioca | Garoto | Descafeinado ...... 0.85€</li>
+          <li>Meia de Leite - Máquina ou Cevada ...... 1.15€</li>
+          <li>Galão - Máquina ou Cevada ...... 1.25€</li>
+          <li>Copo de Leite ...... 0.95€</li>
+          <li>Capuchino ...... 1.50€</li>
+          <li>Chocolate Quente Cremoso ...... 2.30€</li>
+          <li>Cevada pequena ...... 0.80€</li>
+          <li>Cevada grande ...... 0.90€</li>
+          <li>Carioca de limão pequeno ...... 0.70€</li>
+          <li>Carioca de limão grande ...... 0.80€</li>
+          <li>Leite chocolate Ucal ...... 1.50€</li>
+          <li>Chá 1 chávena ...... 1.00€</li>
+          <li>Chá 2 chávenas ...... 1.30€</li>
+          <li>Sumo natural de laranja ...... 2.30€</li>
+          <li>Água s/ Gás 0,33l ...... 0.90€</li>
+          <li>Água s/ Gás 0,5l ...... 1.00€</li>
+          <li>Água s/ Gás 1,50l ...... 1.35€</li>
+          <li>Águas c/ Gás Sabores ...... 1.50€</li>
+          <li>Águas das Pedras 0,25 cl ...... 1.20€</li>
+          <li>Ginger Ale 0,20 cl ...... 1.50€</li>
+        </ul>
+    
+        <h4>BEBIDAS</h4>
+        <ul>
+          <li>Fino 200ml / Fino traçado ...... 1.20€</li>
+          <li>Fino com groselha ...... 1.30€</li>
+          <li>Fino 500ml (caneca) ...... 3.00€</li>
+          <li>Cerveja mini ...... 1.00€</li>
+          <li>Cerveja mini preta ...... 1.20€</li>
+          <li>Cerveja garrafa (0,33cl) ...... 1.30€</li>
+          <li>Cerveja preta garrafa com álcool (0,33cl) ...... 1.40€</li>
+          <li>Cerveja sem álcool (0,33cl) ...... 1.40€</li>
+          <li>Somersby ...... 2.00€</li>
+          <li>Refrigerante de garrafa ...... 1.50€</li>
+          <li>Refrigerante de lata ...... 1.50€</li>
+          <li>Compal / Iced Tea / Santa! ...... 1.50€</li>
+          <li>Red Bull 250ml ...... 2.00€</li>
+        </ul>
+    
+        <h4>WHISKY</h4>
+        <ul>
+          <li>Whisky Novo 5cl ...... 3.80€</li>
+          <li>1/2 Whisky Novo ...... 2.80€</li>
+          <li>Whisky Velho 5cl ...... 5.50€</li>
+          <li>1/2 Whisky Velho ...... 4.50€</li>
+        </ul>
+    
+        <h4>BEBIDAS BRANCAS</h4>
+        <ul>
+          <li>Taça de vinho ...... 0.60€</li>
+          <li>Vinho do Porto ...... 1.30€</li>
+          <li>Favaios ou Martini ...... 1.30€</li>
+          <li>Favaios ou Martini com cerveja ...... 1.70€</li>
+          <li>Brandy1920 / Macieira / Croft ...... 2.20€</li>
+          <li>1/2 Brandy1920 / Macieira / Croft ...... 1.50€</li>
+          <li>Amêndoa Amarga 0.5 cl ...... 2.20€</li>
+          <li>1/2 Amêndoa Amarga 0.3 cl ...... 1.50€</li>
+          <li>Licor Beirão ...... 2.60€</li>
+          <li>1/2 Licor Beirão ...... 1.60€</li>
+          <li>Bagaço 0.3 cl ...... 1.40€</li>
+          <li>1/2 Bagaço 0.2 cl ...... 1.00€</li>
+          <li>Aguardente Velha 0.5 cl ...... 4.50€</li>
+          <li>1/2 Aguardente Velha 0.3 cl ...... 3.00€</li>
+          <li>Bayles 0.5 cl ...... 3.50€</li>
+        </ul>
+      `,
+    
+      en: `
+        <h3>Complete Menu - English</h3>
+        
+        <h4>SANDWICHES</h4>
+        <ul>
+          <li>Omelette Sandwich ...... 2.50€</li>
+          <li>Breaded Sandwich ...... 3.20€</li>
+          <li>Ham Sandwich ...... 3.80€</li>
+          <li>Ham and Serra Cheese Sandwich ...... 5.00€</li>
+          <li>Breaded Steak Sandwich ...... 3.20€</li>
+          <li>Bifana in Bread ...... 2.20€</li>
+          <li>Hot Dog ...... 2.60€</li>
+          <li>Hamburger ...... 3.80€</li>
+        </ul>
+    
+        <h4>SALADS</h4>
+        <ul>
+          <li>Mixed Salad (lettuce, tomato, carrot, olives) ...... 4.70€</li>
+          <li>Tuna Salad (lettuce, tomato, egg, tuna, carrot, olives) ...... 5.50€</li>
+          <li>Seafood Salad (lettuce, tomato, carrot, seafood, olives) ...... 6.00€</li>
+        </ul>
+    
+        <h4>QUICK MEALS</h4>
+        <ul>
+          <li>Gizzards (gizzards, fries, salad) ...... 6.00€</li>
+          <li>Bifana (bifana, egg, fries, salad) ...... 6.50€</li>
+          <li>Steak (steak, fries, salad) ...... 5.00€</li>
+          <li>Alheira (alheira, egg, fries, salad) ...... 5.00€</li>
+          <li>Hamburger (hamburger, egg, fries, salad) ...... 5.00€</li>
+          <li>Omelette (omelette, fries, salad) ...... 5.00€</li>
+          <li>Sausages (sausages, fries, salad) ...... 5.00€</li>
+        </ul>
+    
+        <h4>SNACKS</h4>
+        <ul>
+          <li>Lupini Beans ...... 0.60€</li>
+          <li>Peanuts in Shell ...... 0.60€</li>
+          <li>Grilled Chorizo ...... 5.50€ (unit)</li>
+          <li>Gizzards Plate ...... 4.50€</li>
+          <li>Alheira ...... 4.50€ (unit)</li>
+          <li>Pica Pau (Portuguese appetizer) ...... 8.00€</li>
+          <li>Ham and Serra Cheese Plate ...... 7.50€</li>
+          <li>Tripe Plate ...... 5.00€</li>
+          <li>Ear Plate ...... 3.00€</li>
+        </ul>
+    
+        <h4>CAFETERIA</h4>
+        <ul>
+          <li>Black Coffee ...... 0.90€</li>
+          <li>Coffee with a Dash of Milk ...... 1.05€</li>
+          <li>Coffee | Carioca | Garoto | Decaf ...... 0.85€</li>
+          <li>Half Milk - Machine or Barley ...... 1.15€</li>
+          <li>Galão - Machine or Barley ...... 1.25€</li>
+          <li>Glass of Milk ...... 0.95€</li>
+          <li>Cappuccino ...... 1.50€</li>
+          <li>Creamy Hot Chocolate ...... 2.30€</li>
+          <li>Small Barley Drink ...... 0.80€</li>
+          <li>Large Barley Drink ...... 0.90€</li>
+          <li>Small Lemon Infusion ...... 0.70€</li>
+          <li>Large Lemon Infusion ...... 0.80€</li>
+          <li>Ucal Chocolate Milk ...... 1.50€</li>
+          <li>Tea (1 cup) ...... 1.00€</li>
+          <li>Tea (2 cups) ...... 1.30€</li>
+          <li>Fresh Orange Juice ...... 2.30€</li>
+          <li>Still Water 0,33l ...... 0.90€</li>
+          <li>Still Water 0,5l ...... 1.00€</li>
+          <li>Still Water 1,50l ...... 1.35€</li>
+          <li>Flavored Sparkling Water ...... 1.50€</li>
+          <li>Águas das Pedras 0,25 cl ...... 1.20€</li>
+          <li>Ginger Ale 0,20 cl ...... 1.50€</li>
+        </ul>
+    
+        <h4>DRINKS</h4>
+        <ul>
+          <li>Draft Beer 200ml / Mixed Beer ...... 1.20€</li>
+          <li>Beer with Blackcurrant Syrup ...... 1.30€</li>
+          <li>Draft Beer 500ml (mug) ...... 3.00€</li>
+          <li>Mini Beer ...... 1.00€</li>
+          <li>Dark Mini Beer ...... 1.20€</li>
+          <li>Bottled Beer (0,33cl) ...... 1.30€</li>
+          <li>Dark Bottled Beer with Alcohol (0,33cl) ...... 1.40€</li>
+          <li>Non-Alcoholic Beer (0,33cl) ...... 1.40€</li>
+          <li>Somersby ...... 2.00€</li>
+          <li>Bottled Soft Drink ...... 1.50€</li>
+          <li>Canned Soft Drink ...... 1.50€</li>
+          <li>Compal / Iced Tea / Santa! ...... 1.50€</li>
+          <li>Red Bull 250ml ...... 2.00€</li>
+        </ul>
+    
+        <h4>WHISKY</h4>
+        <ul>
+          <li>New Whisky 5cl ...... 3.80€</li>
+          <li>1/2 New Whisky ...... 2.80€</li>
+          <li>Old Whisky 5cl ...... 5.50€</li>
+          <li>1/2 Old Whisky ...... 4.50€</li>
+        </ul>
+    
+        <h4>SPIRITS</h4>
+        <ul>
+          <li>Glass of Wine ...... 0.60€</li>
+          <li>Port Wine ...... 1.30€</li>
+          <li>Favaios or Martini ...... 1.30€</li>
+          <li>Favaios or Martini with Beer ...... 1.70€</li>
+          <li>Brandy1920 / Macieira / Croft ...... 2.20€</li>
+          <li>1/2 Brandy1920 / Macieira / Croft ...... 1.50€</li>
+          <li>Bitter Almond Liqueur 0.5 cl ...... 2.20€</li>
+          <li>1/2 Bitter Almond Liqueur 0.3 cl ...... 1.50€</li>
+          <li>Licor Beirão ...... 2.60€</li>
+          <li>1/2 Licor Beirão ...... 1.60€</li>
+          <li>Bagaço 0.3 cl ...... 1.40€</li>
+          <li>1/2 Bagaço 0.2 cl ...... 1.00€</li>
+          <li>Old Aguardente 0.5 cl ...... 4.50€</li>
+          <li>1/2 Old Aguardente 0.3 cl ...... 3.00€</li>
+          <li>Baileys 0.5 cl ...... 3.50€</li>
+        </ul>
+      `,
+    
+      de: `
+        <h3>Komplettes Menü - Deutsch</h3>
+        
+        <h4>SANDWICHES</h4>
+        <ul>
+          <li>Omelett-Sandwich ...... 2,50€</li>
+          <li>Paniertes Sandwich ...... 3,20€</li>
+          <li>Schinkensandwich ...... 3,80€</li>
+          <li>Schinken und Serra-Käse-Sandwich ...... 5,00€</li>
+          <li>Paniertes Steak-Sandwich ...... 3,20€</li>
+          <li>Bifana im Brot ...... 2,20€</li>
+          <li>Hot Dog ...... 2,60€</li>
+          <li>Hamburger ...... 3,80€</li>
+        </ul>
+    
+        <h4>SALATE</h4>
+        <ul>
+          <li>Gemischter Salat (Kopfsalat, Tomate, Karotte, Oliven) ...... 4,70€</li>
+          <li>Thunfischsalat (Kopfsalat, Tomate, Ei, Thunfisch, Karotte, Oliven) ...... 5,50€</li>
+          <li>Meeresfrüchtesalat (Kopfsalat, Tomate, Karotte, Meeresfrüchte, Oliven) ...... 6,00€</li>
+        </ul>
+    
+        <h4>SCHNELLGERICHTE</h4>
+        <ul>
+          <li>Hühnermägen (Hühnermägen, Pommes, Salat) ...... 6,00€</li>
+          <li>Bifana (Bifana, Ei, Pommes, Salat) ...... 6,50€</li>
+          <li>Steak (Steak, Pommes, Salat) ...... 5,00€</li>
+          <li>Alheira (Alheira, Ei, Pommes, Salat) ...... 5,00€</li>
+          <li>Hamburger (Hamburger, Ei, Pommes, Salat) ...... 5,00€</li>
+          <li>Omelett (Omelett, Pommes, Salat) ...... 5,00€</li>
+          <li>Würstchen (Würstchen, Pommes, Salat) ...... 5,00€</li>
+        </ul>
+    
+        <h4>SNACKS</h4>
+        <ul>
+          <li>Lupinen ...... 0,60€</li>
+          <li>Erdnüsse in der Schale ...... 0,60€</li>
+          <li>Gegrillte Chorizo ...... 5,50€ (Stück)</li>
+          <li>Hühnermägen-Teller ...... 4,50€</li>
+          <li>Alheira ...... 4,50€ (Stück)</li>
+          <li>Pica Pau (Portugiesische Vorspeise) ...... 8,00€</li>
+          <li>Schinken und Serra-Käse-Teller ...... 7,50€</li>
+          <li>Kutteln-Teller ...... 5,00€</li>
+          <li>Ohren-Teller ...... 3,00€</li>
+        </ul>
+    
+        <h4>KAFFEEBAR</h4>
+        <ul>
+          <li>Schwarzer Kaffee ...... 0,90€</li>
+          <li>Kaffee mit einem Schuss Milch ...... 1,05€</li>
+          <li>Kaffee | Carioca | Garoto | Entkoffeiniert ...... 0,85€</li>
+          <li>Halb Milch - Maschine oder Gerste ...... 1,15€</li>
+          <li>Galão - Maschine oder Gerste ...... 1,25€</li>
+          <li>Glas Milch ...... 0,95€</li>
+          <li>Cappuccino ...... 1,50€</li>
+          <li>Cremige heiße Schokolade ...... 2,30€</li>
+          <li>Kleines Gerstengetränk ...... 0,80€</li>
+          <li>Großes Gerstengetränk ...... 0,90€</li>
+          <li>Kleiner Zitronenaufguss ...... 0,70€</li>
+          <li>Großer Zitronenaufguss ...... 0,80€</li>
+          <li>Ucal Schokoladenmilch ...... 1,50€</li>
+          <li>Tee (1 Tasse) ...... 1,00€</li>
+          <li>Tee (2 Tassen) ...... 1,30€</li>
+          <li>Frischer Orangensaft ...... 2,30€</li>
+          <li>Stilles Wasser 0,33l ...... 0,90€</li>
+          <li>Stilles Wasser 0,5l ...... 1,00€</li>
+          <li>Stilles Wasser 1,50l ...... 1,35€</li>
+          <li>Aromatisiertes Sprudelwasser ...... 1,50€</li>
+          <li>Águas das Pedras 0,25 cl ...... 1,20€</li>
+          <li>Ginger Ale 0,20 cl ...... 1,50€</li>
+        </ul>
+    
+        <h4>GETRÄNKE</h4>
+        <ul>
+          <li>Fassbier 200ml / Gemischtes Bier ...... 1,20€</li>
+          <li>Bier mit Johannisbeersirup ...... 1,30€</li>
+          <li>Fassbier 500ml (Becher) ...... 3,00€</li>
+          <li>Mini-Bier ...... 1,00€</li>
+          <li>Dunkles Mini-Bier ...... 1,20€</li>
+          <li>Flaschenbier (0,33cl) ...... 1,30€</li>
+          <li>Dunkles Flaschenbier mit Alkohol (0,33cl) ...... 1,40€</li>
+          <li>Alkoholfreies Bier (0,33cl) ...... 1,40€</li>
+          <li>Somersby ...... 2,00€</li>
+          <li>Flaschengetränk ...... 1,50€</li>
+          <li>Dosengetränk ...... 1,50€</li>
+          <li>Compal / Eistee / Santa! ...... 1,50€</li>
+          <li>Red Bull 250ml ...... 2,00€</li>
+        </ul>
+    
+        <h4>WHISKY</h4>
+        <ul>
+          <li>Neuer Whisky 5cl ...... 3,80€</li>
+          <li>1/2 Neuer Whisky ...... 2,80€</li>
+          <li>Alter Whisky 5cl ...... 5,50€</li>
+          <li>1/2 Alter Whisky ...... 4,50€</li>
+        </ul>
+    
+        <h4>SPIRITUOSEN</h4>
+        <ul>
+          <li>Glas Wein ...... 0,60€</li>
+          <li>Portwein ...... 1,30€</li>
+          <li>Favaios oder Martini ...... 1,30€</li>
+          <li>Favaios oder Martini mit Bier ...... 1,70€</li>
+          <li>Brandy1920 / Macieira / Croft ...... 2,20€</li>
+          <li>1/2 Brandy1920 / Macieira / Croft ...... 1,50€</li>
+          <li>Bitterer Mandellikör 0.5 cl ...... 2,20€</li>
+          <li>1/2 Bitterer Mandellikör 0.3 cl ...... 1,50€</li>
+          <li>Licor Beirão ...... 2,60€</li>
+          <li>1/2 Licor Beirão ...... 1,60€</li>
+          <li>Bagaço 0.3 cl ...... 1,40€</li>
+          <li>1/2 Bagaço 0.2 cl ...... 1,00€</li>
+          <li>Alter Aguardente 0.5 cl ...... 4,50€</li>
+          <li>1/2 Alter Aguardente 0.3 cl ...... 3,00€</li>
+          <li>Baileys 0.5 cl ...... 3,50€</li>
+        </ul>
+      `
+    };
+
+    function mostrarEmenta(idioma) {
+      document.getElementById('ementa').innerHTML = ementas[idioma];
+    }
+  </script>  
+</body>
+</html>
